@@ -1,0 +1,90 @@
+# API de Usuarios con Node.js, Express y PostgreSQL
+
+Este proyecto implementa una API REST básica para gestionar usuarios, utilizando Node.js y Express en el backend, con PostgreSQL como base de datos.
+
+## Estructura del Proyecto
+
+```
+api-usuarios/
+├── node_modules/
+├── .env
+├── .env.example
+├── .gitignore
+├── db.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
+```
+
+## Requisitos Previos
+
+- Node.js
+- PostgreSQL
+- npm o yarn
+
+## Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/Crisblue1324/S12-Practica.git
+   cd api-usuarios
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Configura las variables de entorno:
+   - Crea un archivo `.env` basado en `.env.example`
+   - Completa con tus credenciales de PostgreSQL
+
+4. Configura la base de datos PostgreSQL:
+   ```sql
+   CREATE DATABASE usuarios_db;
+
+   CREATE TABLE usuarios (
+     id SERIAL PRIMARY KEY,
+     nombre VARCHAR(50),
+     correo VARCHAR(100),
+     contrasena VARCHAR(100)
+   );
+   ```
+
+## Ejecución
+
+Para iniciar el servidor en modo desarrollo:
+
+```bash
+npm start
+```
+
+El servidor estará disponible en: http://localhost:3000
+
+## Endpoints API
+
+### Verificar Funcionamiento
+- **GET /** - Comprueba si el servidor está funcionando correctamente
+
+### Usuarios
+- **GET /usuarios** - Obtiene todos los usuarios registrados
+- **POST /usuarios** - Crea un nuevo usuario
+
+#### Ejemplo de solicitud para crear un usuario:
+```json
+{
+  "nombre": "Juan Pérez",
+  "correo": "juan@ejemplo.com",
+  "contrasena": "clave123"
+}
+```
+
+## Tecnologías Utilizadas
+
+- **Node.js**: Entorno de ejecución para JavaScript en el servidor
+- **Express**: Framework web para Node.js
+- **PostgreSQL**: Sistema de gestión de bases de datos relacional
+- **pg**: Cliente PostgreSQL para Node.js
+- **cors**: Middleware para habilitar CORS
+- **dotenv**: Carga variables de entorno desde archivo .env
